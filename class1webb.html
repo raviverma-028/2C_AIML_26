@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    function info()
+    {
+        let age = parseInt(prompt("Enter Your Age...?"));
+        //prompt is used to take input from user
+        //parseInt is used to convert string into interger
+        
+        if (age>=18)
+        {
+            //alert("you are eligible vote");
+            let c = confirm("do you want submit your vote");
+            if(c)
+        {
+            alert("your response is submitted");
+        }
+        }
+        else
+        {
+           // alert("you are not eligible for vote");
+           alert("Not submitted ; Thankyou");
+        }
+    }
+    </script>
+</head>
+<body>
+    <input type ="button" onclick="info()" value="Result">
+    
+</body>
+</html>
