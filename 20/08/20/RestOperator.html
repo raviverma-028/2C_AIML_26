@@ -1,0 +1,79 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest Operator</title>
+</head>
+
+<body>
+
+    <script>
+
+        // ==========================================
+        // Rest Operator (...)
+        // ==========================================
+
+        function sum(...values) {
+
+            let total = 0;
+
+            for (let n of values) {
+                total = total + n;
+            }
+
+            console.log("Total =", total);
+        }
+
+        // Function can accept any number of arguments
+        sum(10, 20);
+        sum(10, 20, 30);
+        sum(10, 20, 30, 40, 50);
+
+
+        // ==========================================
+        // Rest Operator with a fixed parameter
+        // ==========================================
+
+        function sumWithName(name, ...values) {
+
+            let total = 0;
+
+            for (let n of values) {
+                total = total + n;
+            }
+
+            console.log("Name =", name);
+            console.log("Total =", total);
+        }
+
+        sumWithName("Ravi", 10, 20);
+        sumWithName("Ravi", 10, 20, 30);
+
+
+        // ==========================================
+        // Rest Operator with first and last name
+        // ==========================================
+
+        function student(first, last, ...marks) {
+
+            let total = 0;
+
+            for (let n of marks) {
+                total = total + n;
+            }
+
+            console.log("First Name =", first);
+            console.log("Last Name =", last);
+            console.log("Total Marks =", total);
+        }
+
+        student("Ravi", "Verma", 10, 20, 30);
+        student("Ravi", "Verma", 10, 20, 30, 40, 50);
+
+    </script>
+
+</body>
+</html>
+```

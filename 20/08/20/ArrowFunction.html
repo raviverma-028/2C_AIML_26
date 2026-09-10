@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // // complex-way-code
+        // function sum()
+        // {
+        //     let a=10;
+        //     let b=20;
+        //     c=a+b;
+        //     return c;
+        // }
+        
+        // let sum =function()
+        // {
+        //     let a=10;
+        //     let b=20;
+        //     c=a+b;
+        //     return c;
+        // }
+// Arrow-function-code
+        sum=()=>
+        {
+            let a=10;
+            let b=20;
+            c=a+b;
+            return c;
+        }
+        Display = (name)=>
+        {
+            console.log(name);
+        }
+        Display=name=> 
+        console.log(name);
+
+        fullName=(First, Last)=>
+        {return `${First} ${Last}`}
+        document.write(fullName(ravi ,verma));
+    </script>
+</body>
+</html>
