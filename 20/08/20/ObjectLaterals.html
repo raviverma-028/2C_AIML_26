@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Laterals</title>
+</head>
+<body>
+    <script>
+        let name="Ravi";
+        let Roll=153
+        let student1={
+            name: name,
+            Roll: Roll
+        }
+        console.log(student1.name);
+        console.log(student1.Roll);
+
+
+        //short 
+
+        let name1="Ravi";
+        let Roll1=153
+
+        let student2={
+            name1,
+            Roll1
+        }
+
+        console.log(student2.name1);
+        console.log(student2.Roll1);
+
+        // //another example
+
+         name="stname"
+         let n="name"
+         let student3=
+         {
+             // [name]:"Ravi",
+            ["first"+n]:"Ravi",
+           ["last"+n]:"Verma"
+         }
+         console.log(student3.firstname);
+      console.log(student3.lastname);
+
+
+        // one another code
+
+        let name2="Ravi";
+        let Roll2=153;
+
+        let student = 
+        {
+            name2,
+            Roll2,
+            display()
+            {
+                console.log(this.name2,this.Roll2);
+            }
+        }
+        student.display();
+    </script>
+</body>
+</html>
