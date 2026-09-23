@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Account Management System</title>
+</head>
+
+<body>
+
+    <h1>Bank Account Management System</h1>
+
+    <script>
+
+        
+        class BankAccount {
+
+            
+            constructor(accountNo, holderName, balance) {
+
+                this.accountNo = accountNo;
+                this.holderName = holderName;
+                this.balance = balance;
+            }
+
+
+            
+            deposit(amount) {
+
+                this.balance = this.balance + amount;
+
+                document.write(
+                    "₹" + amount + " deposited successfully.<br>"
+                );
+            }
+
+
+            
+            withdraw(amount) {
+
+                
+                if (amount > this.balance) {
+
+                    document.write(
+                        "Withdrawal failed! Insufficient balance.<br>"
+                    );
+
+                } else {
+
+                    this.balance = this.balance - amount;
+
+                    document.write(
+                        "₹" + amount + " withdrawn successfully.<br>"
+                    );
+                }
+            }
+
+
+          
+            displayBalance() {
+
+                document.write("<h3>Account Details</h3>");
+
+                document.write(
+                    "Account No: " + this.accountNo + "<br>"
+                );
+
+                document.write(
+                    "Holder Name: " + this.holderName + "<br>"
+                );
+
+                document.write(
+                    "Current Balance: ₹" + this.balance + "<br>"
+                );
+
+                document.write("<hr>");
+            }
+
+
+         
+            static bankInfo() {
+
+                document.write("<h2>Bank Information</h2>");
+
+                document.write("Bank Name: ABC Bank<br>");
+                document.write(
+                    "Bank provides savings, deposits and withdrawal services.<br>"
+                );
+
+                document.write("<hr>");
+            }
+        }
+
+
+        
+        BankAccount.bankInfo();
+
+
+        
+        let account1 = new BankAccount(
+            101,
+            "Ravi",
+            10000
+        );
+
+
+      
+        let account2 = new BankAccount(
+            102,
+            "Aman",
+            5000
+        );
+
+
+       
+        document.write("<h2>Account 1</h2>");
+        account1.displayBalance();
+
+
+        document.write("<h2>Account 2</h2>");
+        account2.displayBalance();
+
+
+     
+        document.write("<h2>Transactions for Ravi</h2>");
+
+        account1.deposit(2000);
+
+        account1.withdraw(3000);
+
+        account1.displayBalance();
+
+
+        // Transactions on Account 2
+        document.write("<h2>Transactions for Aman</h2>");
+
+        account2.deposit(1000);
+
+        account2.withdraw(7000);   // Insufficient balance
+
+        account2.displayBalance();
+
+    </script>
+
+</body>
+</html>
+```

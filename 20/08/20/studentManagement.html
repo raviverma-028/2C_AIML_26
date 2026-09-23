@@ -1,0 +1,83 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+</head>
+
+<body>
+
+    <h1>University Student Management System</h1>
+
+    <script>
+
+        
+        class Student {
+
+            
+            static totalStudents = 0;
+
+           
+            constructor(rollNo, name, marks) {
+
+                this.rollNo = rollNo;
+                this.name = name;
+                this.marks = marks;
+
+                // Increase count whenever a new object is created
+                Student.totalStudents++;
+            }
+
+          
+            displayResult() {
+
+                document.write("<h2>Student Details</h2>");
+
+                document.write("Roll No: " + this.rollNo + "<br>");
+                document.write("Name: " + this.name + "<br>");
+                document.write("Marks: " + this.marks + "<br>");
+
+               
+                if (this.marks >= 40) {
+                    document.write("Result: <b>Pass</b><br>");
+                } else {
+                    document.write("Result: <b>Fail</b><br>");
+                }
+
+                document.write("<hr>");
+            }
+
+            // Static method
+            static displayTotalStudents() {
+
+                document.write(
+                    "<h2>Total Students: " +
+                    Student.totalStudents +
+                    "</h2>"
+                );
+            }
+        }
+
+
+        
+        let s1 = new Student(101, "Ravi", 85);
+        let s2 = new Student(102, "Aman", 35);
+        let s3 = new Student(103, "Rahul", 72);
+
+
+        
+        s1.displayResult();
+        s2.displayResult();
+        s3.displayResult();
+
+
+        
+        Student.displayTotalStudents();
+
+    </script>
+
+</body>
+</html>
+```
