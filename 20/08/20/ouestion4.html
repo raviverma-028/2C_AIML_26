@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Product System</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #eef;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>E-Commerce Product System</h1>
+
+    <div class="product">
+        <h2>Product 1</h2>
+        <p id="product1"></p>
+    </div>
+
+    <div class="product">
+        <h2>Product 2</h2>
+        <p id="product2"></p>
+    </div>
+
+    <div class="product">
+        <h2>Electronics Product</h2>
+        <p id="electronics"></p>
+    </div>
+
+    <button onclick="showDiscount()">Apply 10% Discount</button>
+    <button onclick="compare()">Compare Products</button>
+    <button onclick="showElectronics()">Show Electronics</button>
+
+    <div id="output">
+        Result will appear here...
+    </div>
+
+</div>
+
+
+<script>
+
+   
+    class Product {
+
+       
+        constructor(productId, productName, price) {
+            this.productId = productId;
+            this.productName = productName;
+            this.price = price;
+        }
+
+        
+        getDiscountedPrice(discount) {
+            return this.price - (this.price * discount / 100);
+        }
+
+        
+        display() {
+            return `
+                Product ID: ${this.productId}<br>
+                Product Name: ${this.productName}<br>
+                Price: ₹${this.price}
+            `;
+        }
+
+        
+        static compareProducts(p1, p2) {
+
+            if (p1.price > p2.price) {
+                return `Higher priced product: ${p1.productName}
+                        (₹${p1.price})`;
+            }
+            else if (p2.price > p1.price) {
+                return `Higher priced product: ${p2.productName}
+                        (₹${p2.price})`;
+            }
+            else {
+                return "Both products have the same price.";
+            }
+        }
+    }
+
+
+    
+    class Electronics extends Product {
+
+        constructor(productId, productName, price, warranty) {
+
+            
+            super(productId, productName, price);
+
+            this.warranty = warranty;
+        }
+
+        // Method Overriding
+        display() {
+            return `
+                Product ID: ${this.productId}<br>
+                Product Name: ${this.productName}<br>
+                Price: ₹${this.price}<br>
+                Warranty: ${this.warranty} years
+            `;
+        }
+    }
+
+
+    // Creating Product Objects
+    const product1 = new Product(
+        101,
+        "Laptop Bag",
+        1500
+    );
+
+    const product2 = new Product(
+        102,
+        "Office Chair",
+        5000
+    );
+
+
+    
+    const electronic1 = new Electronics(
+        103,
+        "Smartphone",
+        25000,
+        2
+    );
+
+
+   
+    document.getElementById("product1").innerHTML =
+        product1.display();
+
+    document.getElementById("product2").innerHTML =
+        product2.display();
+
+    document.getElementById("electronics").innerHTML =
+        electronic1.display();
+
+
+    
+    function showDiscount() {
+
+        let discount = 10;
+
+        let finalPrice =
+            product2.getDiscountedPrice(discount);
+
+        document.getElementById("output").innerHTML =
+            `
+            <strong>Discount Result</strong><br><br>
+            Product: ${product2.productName}<br>
+            Original Price: ₹${product2.price}<br>
+            Discount: ${discount}%<br>
+            Final Price: ₹${finalPrice}
+            `;
+    }
+
+
+    
+    function compare() {
+
+       
+        let result =
+            Product.compareProducts(product1, product2);
+
+        document.getElementById("output").innerHTML =
+            `<strong>Product Comparison</strong><br><br>${result}`;
+    }
+
+
+   
+    function showElectronics() {
+
+        document.getElementById("output").innerHTML =
+            `
+            <strong>Electronics Details</strong><br><br>
+            ${electronic1.display()}
+            `;
+    }
+
+</script>
+
+</body>
+</html>
